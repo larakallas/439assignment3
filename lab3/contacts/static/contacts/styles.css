@@ -1,0 +1,166 @@
+/* Global Styles */
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #eef1f6;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Header */
+header {
+    background: linear-gradient(90deg, #007BFF, #0056b3);
+    color: white;
+    padding: 30px 0;
+    text-align: center;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+    font-weight: 600;
+}
+
+nav {
+    margin-top: 20px;
+}
+
+.add-contact {
+    background: linear-gradient(90deg, #28a745, #218838);
+    color: white;
+    padding: 12px 25px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.add-contact:hover {
+    background: linear-gradient(90deg, #218838, #1e7e34);
+    transform: scale(1.05);
+}
+
+/* Search Bar Container */
+.search-container {
+    margin-top: 20px;
+    text-align: center;
+}
+
+#search-bar {
+    width: 80%; /* Adjust width as necessary */
+    padding: 12px 15px;
+    border-radius: 25px;
+    border: 1px solid #ccc;
+    font-size: 1em;
+    transition: border 0.3s ease;
+}
+
+#search-bar:focus {
+    border: 1px solid #007BFF; /* Change border color on focus */
+    outline: none; /* Remove default outline */
+}
+
+/* Section Title */
+h2 {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 1.8em;
+    text-align: center;
+}
+
+/* Contact Grid */
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 25px; /* Space between cards */
+    padding: 20px;
+}
+
+/* Contact Card */
+.contact-card {
+    background: #fff;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    overflow: hidden;
+}
+
+.contact-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
+}
+
+.contact-info h3 {
+    margin: 0 0 15px;
+    font-size: 1.6em;
+    color: #007BFF;
+}
+
+.contact-info p {
+    margin: 8px 0;
+    font-size: 1.1em;
+    color: #555;
+}
+
+/* Contact Info Styling */
+.contact-info p strong {
+    font-weight: 600;
+    color: #333;
+}
+
+/* Action Buttons */
+.actions {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.edit, .delete {
+    text-decoration: none;
+    padding: 10px 20px;
+    font-weight: bold;
+    border-radius: 30px;
+    border: none;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.edit {
+    background: linear-gradient(90deg, #007BFF, #0056b3);
+    color: white;
+}
+
+.edit:hover {
+    background: linear-gradient(90deg, #0056b3, #003d80);
+    transform: scale(1.05);
+}
+
+.delete {
+    background: linear-gradient(90deg, #dc3545, #c82333);
+    color: white;
+}
+
+.delete:hover {
+    background: linear-gradient(90deg, #c82333, #a71d2a);
+    transform: scale(1.05);
+}
+
+/* Empty State */
+.no-contacts {
+    text-align: center;
+    font-size: 1.3em;
+    color: #888;
+    padding: 50px 0;
+}
+
+/* Footer */
+footer {
+    margin-top: 40px;
+    text-align: center;
+    color: #777;
+    font-size: 0.9em;
+}

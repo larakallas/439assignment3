@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact List</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'contacts/styles.css' %}">
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <h1>Contact Manager</h1>
+    </header>
+
+    <!-- Search and Add Contact Bar -->
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+        <!-- Add New Contact Button -->
+        <a href="{% url 'contact_create' %}" class="add-contact">Add New Contact</a>
+
+        <!-- Search Bar -->
+        <form method="GET" action="{% url 'contact_list' %}" class="search-form" style="display: flex; align-items: center;">
+            <!-- Search by Contact Name -->
+            <input type="text" name="q" placeholder="Search Contacts..." value="{{ query }}" style="padding: 10px; border-radius: 5px; border: 1px solid #ccc; margin-right: 10px;">
+            <!-- Search by Address -->
+            <input type="text" name="address" placeholder="Search Address..." value="{{ address_query }}" style="padding: 10px; border-radius: 5px; border: 1px solid #ccc; margin-right: 10px;">
+            <button type="submit" style="padding: 10px 15px; border: none; border-radius: 5px; background-color: #007BFF; color: white; cursor: pointer;">Search</button>
+        </form>
+    </div>
+
+    <!-- Contact List -->
+    <section>
+        <ul class="contact-grid">
+            {% if contacts %}
+                {% for contact in contacts %}
+                    <li class="contact-card">
+                        <div class="contact-info">
+                            <h3>{{ contact.name }}</h3>
+                            <p><strong>Profession:</strong> {{ contact.profession }}</p>
+                            <p><strong>Phone:</strong> {{ contact.tel_number }}</p>
+                            <p><strong>Email:</strong> {{ contact.email_address }}</p>
+                            <p><strong>Address:</strong> {{ contact.address }}</p>
+                        </div>
+
+                        <div class="actions">
+                            <a href="{% url 'contact_update' contact.pk %}" class="edit">Edit</a>
+                            <a href="{% url 'contact_delete' contact.pk %}" class="delete">Delete</a>
+                        </div>
+                    </li>
+                {% endfor %}
+            {% else %}
+                <p class="no-contacts">No contacts found.</p>
+            {% endif %}
+        </ul>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Contact Manager</p>
+    </footer>
+
+    <!-- Form Error Display (if any) -->
+    {% if form.errors %}
+        <ul class="error-list">
+            {% for field in form %}
+                {% for error in field.errors %}
+                    <li>{{ field.label }}: {{ error }}</li>
+                {% endfor %}
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+
+</html>
